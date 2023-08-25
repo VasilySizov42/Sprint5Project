@@ -5,9 +5,20 @@ import java.util.HashSet;
 import java.util.List;
 
 public class AnimalFarm {
-    private List<String> farmAnimals;
+    private Animal type;
+    private String name;
+    private final List<String> farmAnimals;
     public AnimalFarm(List<String> farmAnimals){
         this.farmAnimals = farmAnimals;
+    }
+    public void addingAnimal(Animal type, String name){
+        farmAnimals.add(type.toString() + " " + name);
+    }
+    public void addingAnimal(Animal type){
+        farmAnimals.add(type.toString() + " " + "N");
+    }
+    public void addingAnimal(String name){
+        farmAnimals.add(Animal.NOT_DEFINED + " " + name);
     }
     public HashMap countedAnimals(List<String> farmAnimals){
         HashMap<Animal, Integer> animalCount = new HashMap<>();
