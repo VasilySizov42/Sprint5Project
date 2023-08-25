@@ -1,6 +1,7 @@
 package org.example.farm;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class AnimalFarm {
@@ -21,5 +22,17 @@ public class AnimalFarm {
             }
         }
         return animalCount;
+    }
+    public HashSet uniqueNames(List<String> farmAnimals){
+        HashSet<String> animalNames = new HashSet<>();
+        for(String animal : farmAnimals) {
+            try {
+                animalNames.add(animal.split(" ")[1]);
+            } catch (ArrayIndexOutOfBoundsException exception) {
+                System.out.println("Please correct string "+ animal
+                        + ". Incorrect input data.");
+            }
+        }
+        return animalNames;
     }
 }

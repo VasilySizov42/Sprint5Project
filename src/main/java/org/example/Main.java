@@ -12,25 +12,29 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<String> farmAnimals = Arrays.asList(
-                "CAT hgh",
-                "CAT hgh",
-                "CAT iohlulg",
-                "CAT iohlulg",
-                "CAT iohcgfvhlulg",
-                "DOG jbhig",
-                "DOG vhvyufvtu",
-                "DOG kjhbvhlvhvk",
-                "DOG jbhiuyuy",
-                "COW lknlkoih",
-                "COW lknlkoi",
-                "COW lknlk",
-                "HORSE iugygfiu",
-                "HSE iugyiu",
-                "HORSE iugyg"
+                "CAT Мурка",
+                "CAT Пушок",
+                "CAT Васька",
+                "CAT Лакома",
+                "CAT Ворчун",
+                "DOG Жучка",
+                "DOG Пушок",
+                "DOG Мухтар",
+                "DOG Дозор",
+                "COW Мурка",
+                "COW Гаврюша",
+                "COW Бурёнка",
+                "HORSE Лакома",
+                "HORSE ",
+                "HORSE",
+                "HSE Буян",
+                "HORSE Яблоко",
+                "NOT_DEFINED Ряба"
         );
         AnimalFarm farm_1 = new AnimalFarm(farmAnimals);
-        HashMap<Animal, Integer> animalCount = farm_1.countedAnimals(farmAnimals);
-
-        System.out.printf(String.valueOf(animalCount));
+        var animalCount = farm_1.countedAnimals(farmAnimals);
+        var animalNames = farm_1.uniqueNames(farmAnimals);
+        System.out.printf(animalCount +"\n");
+        System.out.printf(animalNames +"\n");
     }
 }
