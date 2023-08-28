@@ -5,14 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 
 public class AnimalFarm {
-    private Animal type;
-    private String name;
-    private final List<String> farmAnimals;
+    private List<String> farmAnimals;
     public AnimalFarm(List<String> farmAnimals){
         this.farmAnimals = farmAnimals;
     }
-    public void addingAnimal(Animal type, String name){
-        farmAnimals.add(type.toString() + " " + name);
+    public void addingFarm(List<String> farmAnimals){
+        for(String animal : farmAnimals) {this.farmAnimals.add(animal);}
     }
     public void addingAnimal(Animal type){
         farmAnimals.add(type.toString() + " " + "N");
@@ -20,7 +18,10 @@ public class AnimalFarm {
     public void addingAnimal(String name){
         farmAnimals.add(Animal.NOT_DEFINED + " " + name);
     }
-    public HashMap countedAnimals(List<String> farmAnimals){
+    public void addingAnimal(Animal type, String name){
+        farmAnimals.add(type.toString() + " " + name);
+    }
+    public HashMap countedAnimals(){
         HashMap<Animal, Integer> animalCount = new HashMap<>();
         for(String animal : farmAnimals) {
             try {
@@ -34,7 +35,7 @@ public class AnimalFarm {
         }
         return animalCount;
     }
-    public HashSet uniqueNames(List<String> farmAnimals){
+    public HashSet uniqueNames(){
         HashSet<String> animalNames = new HashSet<>();
         for(String animal : farmAnimals) {
             try {
@@ -45,5 +46,15 @@ public class AnimalFarm {
             }
         }
         return animalNames;
+    }
+    @Override
+    public String toString() {
+        String outList = "";
+        for(String string : farmAnimals){
+            //String type = string.split(" ")[0];
+            //String name = string.split(" ")[1];
+            outList = outList + string + "\n";
+        }
+        return outList;
     }
 }

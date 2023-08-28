@@ -3,38 +3,27 @@ package org.example;
 import org.example.farm.Animal;
 import org.example.farm.AnimalFarm;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import static org.example.farm.Farms.farm_1;
+
 public class Main {
     public static void main(String[] args) {
-        List<String> farmAnimals = Arrays.asList(
-                "CAT Мурка",
-                "CAT Пушок",
-                "CAT Васька",
-                "CAT Лакома",
-                "CAT Ворчун",
-                "DOG Жучка",
-                "DOG Пушок",
-                "DOG Мухтар",
-                "DOG Дозор",
-                "COW Мурка",
-                "COW Гаврюша",
-                "COW Бурёнка",
-                "HORSE Лакома",
-                "HORSE ",
-                "HORSE",
-                "HSE Буян",
-                "HORSE Яблоко",
-                "NOT_DEFINED Ряба"
-        );
+        List<String> farmAnimals = Arrays.asList(farm_1);
+        List<String> farmAnimals_1 = new ArrayList<>();
         AnimalFarm farm_1 = new AnimalFarm(farmAnimals);
-        var animalCount = farm_1.countedAnimals(farmAnimals);
-        var animalNames = farm_1.uniqueNames(farmAnimals);
-        System.out.printf(animalCount +"\n");
-        System.out.printf(animalNames +"\n");
+        System.out.printf(farm_1.countedAnimals() +"\n");
+        System.out.printf(farm_1.uniqueNames() +"\n");
+        System.out.printf(farm_1.toString());
+        var farm_2 = new AnimalFarm(farmAnimals_1);
+        farm_2.addingFarm(farmAnimals);
+        farm_2.addingAnimal("Том");
+        farm_2.addingAnimal(Animal.CAT);
+        farm_2.addingAnimal(Animal.CAT, "Том");
+        System.out.printf(farm_2.countedAnimals() +"\n");
+        System.out.printf(farm_2.uniqueNames() +"\n");
+        System.out.printf(farm_2.toString());
     }
 }
